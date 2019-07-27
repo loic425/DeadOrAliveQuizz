@@ -6,5 +6,6 @@ imports:
     - suites/ui/account/login.yaml
     - suites/ui/account/registration.yaml
     - suites/ui/admin/dashboard.yaml
+    - suites/ui/celebrity/managing_celebrities.yaml
     - suites/ui/customer/managing_customers.yaml
     - suites/ui/user/managing_administrators.yaml

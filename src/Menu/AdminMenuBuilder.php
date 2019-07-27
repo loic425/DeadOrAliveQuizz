@@ -39,10 +39,22 @@ final class AdminMenuBuilder
     {
         $menu = $this->factory->createItem('root');
 
+        $this->addContentSubMenu($menu);
         $this->addCustomerSubMenu($menu);
         $this->addConfigurationSubMenu($menu);
 
         return $menu;
+    }
+
+    private function addContentSubMenu(ItemInterface $menu): ItemInterface
+    {
+        $customer = $menu
+            ->addChild('content')
+            ->setLabel('sylius.ui.content');
+        $customer->addChild('backend_celebrity', ['route' => 'app_backend_celebrity_index'])
+            ->setLabel('app.ui.celebrities')
+            ->setLabelAttribute('icon', 'star');
+        return $customer;
     }
 
     /**
