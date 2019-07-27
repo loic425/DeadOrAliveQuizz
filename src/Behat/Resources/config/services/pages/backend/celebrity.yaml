@@ -10,7 +10,6 @@ services:
           arguments: ["app_backend_celebrity_index"]
 
       App\Behat\Page\Backend\Celebrity\UpdatePage:
-          class: App\Behat\Page\Backend\Administrator\UpdatePage
           parent: app.behat.page.backend.crud.update
           public: false
           arguments: ["app_backend_celebrity_update"]

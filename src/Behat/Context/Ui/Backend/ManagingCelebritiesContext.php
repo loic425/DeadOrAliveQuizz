@@ -15,6 +15,7 @@ namespace App\Behat\Context\Ui\Backend;
 use App\Behat\Page\Backend\Celebrity\CreatePage;
 use App\Behat\Page\Backend\Celebrity\IndexPage;
 use App\Behat\Page\Backend\Celebrity\UpdatePage;
+use App\Entity\Celebrity;
 use Behat\Behat\Context\Context;
 use Webmozart\Assert\Assert;
 
@@ -54,11 +55,11 @@ class ManagingCelebritiesContext implements Context
     }
 
     /**
-     * @Given I want to modify the :article celebrity
+     * @Given I want to modify the :celebrity celebrity
      */
-    public function iWantToModifyAnArticle(Article $article)
+    public function iWantToModifyTheCelebrity(Celebrity $celebrity)
     {
-        $this->updatePage->open(['id' => $article->getId()]);
+        $this->updatePage->open(['id' => $celebrity->getId()]);
     }
 
     /**
@@ -161,7 +162,7 @@ class ManagingCelebritiesContext implements Context
      */
     public function iShouldBeNotifiedThatFirstNameIsRequired()
     {
-        Assert::same($this->createPage->getValidationMessage('firstName'), 'This value should not be blank.');
+        Assert::same($this->createPage->getValidationMessage('first_name'), 'This value should not be blank.');
     }
 
     /**

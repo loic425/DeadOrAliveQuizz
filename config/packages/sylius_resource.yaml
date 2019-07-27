@@ -3,6 +3,7 @@ sylius_resource:
         app.celebrity:
             classes:
                 model: App\Entity\Celebrity
+                form: App\Form\Type\CelebrityType
         app.oauth_client:
             classes:
                 model: App\Entity\OAuth\Client

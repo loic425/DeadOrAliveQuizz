@@ -5,7 +5,7 @@ Feature: Editing celebrity
     I want to be able to edit an celebrity
 
     Background:
-        Given there is an celebrity Stephen King
+        Given there is a celebrity Stephen King
         And I am logged in as an administrator
 
     @ui

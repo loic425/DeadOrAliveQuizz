@@ -5,10 +5,11 @@ default:
                 - App\Behat\Context\Hook\DoctrineORMContext
 
                 - App\Behat\Context\Setup\AdminSecurityContext
+                - App\Behat\Context\Setup\CelebrityContext
 
                 - App\Behat\Context\Transform\SharedStorageContext
 
-                - App\Behat\Context\Ui\Backend\ManagingcelebritiesContext
+                - App\Behat\Context\Ui\Backend\ManagingCelebritiesContext
                 - App\Behat\Context\Ui\Backend\NotificationContext
             filters:
                 tags: "@managing_celebrities && @ui"

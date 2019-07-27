@@ -29,6 +29,13 @@ class CelebrityContext implements Context
     /** @var SharedStorageInterface */
     private $sharedStorage;
 
+    public function __construct(CelebrityExampleFactory $celebrityFactory, RepositoryInterface $celebrityRepository, SharedStorageInterface $sharedStorage)
+    {
+        $this->celebrityFactory = $celebrityFactory;
+        $this->celebrityRepository = $celebrityRepository;
+        $this->sharedStorage = $sharedStorage;
+    }
+
     /**
      * @Given there is (also )a celebrity :firstName :lastName
      */

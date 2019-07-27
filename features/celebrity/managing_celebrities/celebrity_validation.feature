@@ -8,7 +8,7 @@ Feature: celebrities validation
         Given I am logged in as an administrator
 
     @ui
-    Scenario: Trying to add a new celebrity without title
+    Scenario: Trying to add a new celebrity without first name
         Given I want to create a new celebrity
         When I do not specify its first name
         And I try to add it
