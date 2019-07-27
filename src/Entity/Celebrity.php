@@ -12,19 +12,36 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="app_celebrity")
+ */
 class Celebrity implements ResourceInterface
 {
     use IdentifiableTrait;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string")
+     */
     private $firstName;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string")
+     */
     private $lastName;
 
-    /** @var \DateTimeInterface|null */
+    /**
+     * @var \DateTimeInterface|null
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private $deadAt;
 
     public function getFirstName(): ?string
