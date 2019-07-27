@@ -10,9 +10,9 @@ Feature: Editing celebrity
 
     @ui
     Scenario: Renaming the celebrity
-        Given I want to modify the Stephen King celebrity
-        When I rename it to Stephen Hawking
+        Given I want to modify the "Stephen King" celebrity
+        When I rename it to Richard Bachman
         And I save my changes
         Then I should be notified that it has been successfully edited
-        And I should see the celebrity Stephen Hawking in the list
+        And I should see the celebrity Richard Bachman in the list
         But there should not be Stephen King celebrity anymore

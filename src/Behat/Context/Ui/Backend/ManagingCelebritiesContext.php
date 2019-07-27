@@ -85,8 +85,8 @@ class ManagingCelebritiesContext implements Context
      */
     public function iChangeItsFirstnameAndLastNameAs(string $firstName, string $lastName)
     {
-        $this->updatePage->specifyFirstName($firstName);
-        $this->updatePage->specifyLastName($lastName);
+        $this->updatePage->changeFirstName($firstName);
+        $this->updatePage->changeLastName($lastName);
     }
 
     /**

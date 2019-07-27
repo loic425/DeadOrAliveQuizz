@@ -16,4 +16,24 @@ use App\Behat\Page\Backend\Crud\UpdatePage as BaseUpdatePage;
 
 class UpdatePage extends BaseUpdatePage
 {
+    public function changeFirstName(?string $firstName)
+    {
+        $this->getElement('first_name')->setValue($firstName);
+    }
+
+    public function changeLastName(?string $lastName)
+    {
+        $this->getElement('last_name')->setValue($lastName);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDefinedElements(): array
+    {
+        return array_merge(parent::getDefinedElements(), [
+            'first_name' => '#app_celebrity_firstName',
+            'last_name' => '#app_celebrity_lastName',
+        ]);
+    }
 }

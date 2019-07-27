@@ -7,6 +7,7 @@ default:
                 - App\Behat\Context\Setup\AdminSecurityContext
                 - App\Behat\Context\Setup\CelebrityContext
 
+                - App\Behat\Context\Transform\CelebrityContext
                 - App\Behat\Context\Transform\SharedStorageContext
 
                 - App\Behat\Context\Ui\Backend\ManagingCelebritiesContext
