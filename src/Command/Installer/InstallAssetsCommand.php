@@ -48,9 +48,9 @@ class InstallAssetsCommand extends Command
     {
         $this
             ->setName('app:install:assets')
-            ->setDescription('Installs all AppName assets.')
+            ->setDescription('Installs all DeadOrAliveQuizz assets.')
             ->setHelp(<<<EOT
-The <info>%command.name%</info> command downloads and installs all AppName media assets.
+The <info>%command.name%</info> command downloads and installs all DeadOrAliveQuizz media assets.
 EOT
             )
         ;
@@ -63,7 +63,7 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln(sprintf('Installing AppName assets for environment <info>%s</info>.', $this->environment));
+        $output->writeln(sprintf('Installing DeadOrAliveQuizz assets for environment <info>%s</info>.', $this->environment));
 
         try {
             $this->directoryChecker->ensureDirectoryExistsAndIsWritable($this->publicDir.'/assets/', $output, $this->getName());

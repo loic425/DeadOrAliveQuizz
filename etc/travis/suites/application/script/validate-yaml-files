@@ -2,5 +2,5 @@
 
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../../../../bash/common.lib.sh"
 
-print_header "Validating (Yaml files)" "AppName"
+print_header "Validating (Yaml files)" "DeadOrAliveQuizz"
 run_command "bin/console lint:yaml config"

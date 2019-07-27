@@ -8,10 +8,10 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 server 'XX.XXX.XX.XXX',
-  user: 'app_name',
+  user: 'doa_quizz',
   roles: %w{app db web},
   ssh_options: {
-    user: 'app_name', # overrides user setting above
+    user: 'doa_quizz', # overrides user setting above
     # keys: %w(/home/user_name/.ssh/id_rsa),
     forward_agent: true,
     auth_methods: %w(publickey password)
@@ -31,9 +31,9 @@ server 'XX.XXX.XX.XXX',
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-role :app, %w{app_name@XX.XXX.XX.XXX}
-role :web, %w{app_name@XX.XXX.XX.XXX}
-role :db,  %w{app_name@XX.XXX.XX.XXX}
+role :app, %w{doa_quizz@XX.XXX.XX.XXX}
+role :web, %w{doa_quizz@XX.XXX.XX.XXX}
+role :db,  %w{doa_quizz@XX.XXX.XX.XXX}
 
 
 # Configuration

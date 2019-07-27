@@ -9,7 +9,7 @@
     </a>    
 </h1>
 
-Search and replace 'app_name', 'AppName' et 'APP_NAME' with your application name
+Search and replace 'doa_quizz', 'DeadOrAliveQuizz' et 'DOA_QUIZZ' with your application name
 
 Installation
 ------------

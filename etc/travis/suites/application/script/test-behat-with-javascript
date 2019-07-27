@@ -8,24 +8,24 @@ prepare_for_behat_with_js() {
     run_command "export DISPLAY=:99"
 
     # Download and configure ChromeDriver
-    if [ ! -f $APP_NAME_CACHE_DIR/chromedriver ] || [ "$($APP_NAME_CACHE_DIR/chromedriver --version | grep -c 2.34)" = "0" ]; then
+    if [ ! -f $DOA_QUIZZ_CACHE_DIR/chromedriver ] || [ "$($DOA_QUIZZ_CACHE_DIR/chromedriver --version | grep -c 2.34)" = "0" ]; then
         run_command "curl http://chromedriver.storage.googleapis.com/2.34/chromedriver_linux64.zip > chromedriver.zip"
         run_command "unzip chromedriver.zip"
         run_command "chmod +x chromedriver"
-        run_command "mv chromedriver $APP_NAME_CACHE_DIR"
+        run_command "mv chromedriver $DOA_QUIZZ_CACHE_DIR"
     fi
 
     # Run ChromeDriver
-    run_command "$APP_NAME_CACHE_DIR/chromedriver > /dev/null 2>&1 &"
+    run_command "$DOA_QUIZZ_CACHE_DIR/chromedriver > /dev/null 2>&1 &"
 
     # Download and configure Selenium
-    if [ ! -f $APP_NAME_CACHE_DIR/selenium.jar ] || [ "$(java -jar $APP_NAME_CACHE_DIR/selenium.jar --version | grep -c 3.4.0)" = "0" ]; then
+    if [ ! -f $DOA_QUIZZ_CACHE_DIR/selenium.jar ] || [ "$(java -jar $DOA_QUIZZ_CACHE_DIR/selenium.jar --version | grep -c 3.4.0)" = "0" ]; then
         run_command "curl http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar > selenium.jar"
-        run_command "mv selenium.jar $APP_NAME_CACHE_DIR"
+        run_command "mv selenium.jar $DOA_QUIZZ_CACHE_DIR"
     fi
 
     # Run Selenium
-    run_command "java -Dwebdriver.chrome.driver=$APP_NAME_CACHE_DIR/chromedriver -jar $APP_NAME_CACHE_DIR/selenium.jar > /dev/null 2>&1 &"
+    run_command "java -Dwebdriver.chrome.driver=$DOA_QUIZZ_CACHE_DIR/chromedriver -jar $DOA_QUIZZ_CACHE_DIR/selenium.jar > /dev/null 2>&1 &"
 
     # Run webserver
     run_command "bin/console server:run 127.0.0.1:8080 --docroot=public --quiet > /dev/null 2>&1 &"

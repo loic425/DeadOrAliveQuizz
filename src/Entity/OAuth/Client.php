@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of AppName.
+ * This file is part of DeadOrAliveQuizz.
  *
  * (c) Monofony
  *

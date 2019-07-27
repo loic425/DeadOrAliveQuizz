@@ -5,8 +5,8 @@ language: php
 env:
     global:
         - APP_ENV=test
-        - APP_NAME_CACHE_DIR=$HOME/.app_name-cache
-        - APP_NAME_BUILD_DIR=etc/build
+        - DOA_QUIZZ_CACHE_DIR=$HOME/.doa_quizz-cache
+        - DOA_QUIZZ_BUILD_DIR=etc/build
 
 matrix:
     include:
@@ -14,14 +14,14 @@ matrix:
             sudo: required
             php: 7.2
             env:
-                - APP_NAME_SUITE="application"
+                - DOA_QUIZZ_SUITE="application"
                 - TRAVIS_NODE_VERSION="7.5"
             services:
                 - memcached
         -
             sudo: false
             php: 7.2
-            env: APP_NAME_SUITE="docs packages"
+            env: DOA_QUIZZ_SUITE="docs packages"
             addons:
                 apt:
                     packages:
@@ -34,31 +34,31 @@ cache:
         - ~/.cache/pip
         - vendor
         - node_modules
-        - $APP_NAME_CACHE_DIR
+        - $DOA_QUIZZ_CACHE_DIR
 
 before_install:
-    - etc/travis/run-suite before_install "${APP_NAME_SUITE}"
+    - etc/travis/run-suite before_install "${DOA_QUIZZ_SUITE}"
 
 install:
-    - etc/travis/run-suite install "${APP_NAME_SUITE}"
+    - etc/travis/run-suite install "${DOA_QUIZZ_SUITE}"
 
 before_script:
-    - etc/travis/run-suite before_script "${APP_NAME_SUITE}"
+    - etc/travis/run-suite before_script "${DOA_QUIZZ_SUITE}"
 
 script:
-    - etc/travis/run-suite script "${APP_NAME_SUITE}"
+    - etc/travis/run-suite script "${DOA_QUIZZ_SUITE}"
 
 before_cache:
-    - etc/travis/run-suite before_cache "${APP_NAME_SUITE}"
+    - etc/travis/run-suite before_cache "${DOA_QUIZZ_SUITE}"
 
 after_success:
-    - etc/travis/run-suite after_success "${APP_NAME_SUITE}"
+    - etc/travis/run-suite after_success "${DOA_QUIZZ_SUITE}"
 
 after_failure:
-    - etc/travis/run-suite after_failure "${APP_NAME_SUITE}"
+    - etc/travis/run-suite after_failure "${DOA_QUIZZ_SUITE}"
 
 after_script:
-    - etc/travis/run-suite after_script "${APP_NAME_SUITE}"
+    - etc/travis/run-suite after_script "${DOA_QUIZZ_SUITE}"
 
 notifications:
     email: false

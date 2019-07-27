@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of AppName.
+ * This file is part of DeadOrAliveQuizz.
  *
  * (c) Monofony
  *
@@ -62,7 +62,7 @@ final class SetupCommand extends Command
     {
         $this
             ->setName('app:install:setup')
-            ->setDescription('AppName configuration setup.')
+            ->setDescription('DeadOrAliveQuizz configuration setup.')
             ->setHelp(<<<EOT
 The <info>%command.name%</info> command allows user to configure basic AppName data.
 EOT

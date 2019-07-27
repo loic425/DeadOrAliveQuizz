@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of AppName.
+ * This file is part of DeadOrAliveQuizz.
  *
  * (c) Monofony
  *
@@ -57,9 +57,9 @@ final class InstallSampleDataCommand extends Command
     {
         $this
             ->setName('app:install:sample-data')
-            ->setDescription('Install sample data into AppName.')
+            ->setDescription('Install sample data into DeadOrAliveQuizz.')
             ->setHelp(<<<EOT
-The <info>%command.name%</info> command loads the sample data for AppName.
+The <info>%command.name%</info> command loads the sample data for DeadOrAliveQuizz.
 EOT
             )
         ;

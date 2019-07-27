@@ -1,7 +1,7 @@
 parameters:
-    email_contact: contact@app_name.com
+    email_contact: contact@doa_quizz.com
     email_name: Contact AppName
-    email_sender: no-reply@app_name.com
+    email_sender: no-reply@doa_quizz.com
 
 services:
     # default configuration for services in *this* file

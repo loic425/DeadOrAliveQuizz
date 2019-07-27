@@ -51,9 +51,9 @@ class InstallCommand extends Command
     {
         $this
             ->setName('app:install')
-            ->setDescription('Installs AppName in your preferred environment.')
+            ->setDescription('Installs DeadOrAliveQuizz in your preferred environment.')
             ->setHelp(<<<EOT
-The <info>%command.name%</info> command installs AppName.
+The <info>%command.name%</info> command installs DeadOrAliveQuizz.
 EOT
             );
     }
@@ -74,7 +74,7 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $outputStyle = new SymfonyStyle($input, $output);
-        $outputStyle->writeln('<info>Installing AppName...</info>');
+        $outputStyle->writeln('<info>Installing DeadOrAliveQuizz...</info>');
         $outputStyle->writeln($this->getLogo());
 
         $this->directoryChecker->ensureDirectoryExistsAndIsWritable($this->cacheDir, $output, $this->getName());
@@ -106,10 +106,10 @@ EOT
     private function getProperFinalMessage($errored)
     {
         if ($errored) {
-            return '<info>AppName has been installed, but some error occurred.</info>';
+            return '<info>DeadOrAliveQuizz has been installed, but some error occurred.</info>';
         }
 
-        return '<info>AppName has been successfully installed.</info>';
+        return '<info>DeadOrAliveQuizz has been successfully installed.</info>';
     }
 
     /**
