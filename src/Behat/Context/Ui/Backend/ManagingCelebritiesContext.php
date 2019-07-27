@@ -115,7 +115,7 @@ class ManagingCelebritiesContext implements Context
     }
 
     /**
-     * @When I (also) check the :firstName :lastName article
+     * @When I (also) check the :firstName :lastName celebrity
      */
     public function iCheckTheCelebrity(string $firstName, string $lastName): void
     {
