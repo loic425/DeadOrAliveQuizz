@@ -15,6 +15,7 @@ namespace App\Entity;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
+use Sylius\Component\Resource\Model\TranslationInterface;
 
 class Theme implements ResourceInterface, TranslatableInterface
 {
@@ -32,7 +33,7 @@ class Theme implements ResourceInterface, TranslatableInterface
     /**
      * {@inheritdoc}
      */
-    protected function createTranslation()
+    protected function createTranslation(): TranslationInterface
     {
         return new ThemeTranslation();
     }
