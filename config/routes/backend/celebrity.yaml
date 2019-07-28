@@ -1,0 +1,14 @@
+app_backend_celebrity:
+    resource: |
+        alias: app.celebrity
+        section: backend
+        except: ['show']
+        redirect: update
+        grid: app_backend_celebrity
+        vars:
+            all:
+                subheader: app.ui.manage_celebrities
+            index:
+                icon: star
+        templates: backend/crud
+    type: sylius.resource

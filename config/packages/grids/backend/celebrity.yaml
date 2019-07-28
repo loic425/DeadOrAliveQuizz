@@ -1,0 +1,36 @@
+sylius_grid:
+    grids:
+        app_backend_celebrity:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%app.model.celebrity.class%"
+            sorting:
+                lastName: asc
+            fields:
+                firstName:
+                    type: string
+                    label: sylius.ui.first_name
+                    sortable: ~
+                lastName:
+                    type: string
+                    label: sylius.ui.last_name
+                    sortable: ~
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [firstName, LastName]
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+                bulk:
+                    delete:
+                        type: delete

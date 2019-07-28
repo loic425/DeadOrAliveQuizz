@@ -1,8 +1,12 @@
 app:
     ui:
+        celebrities: Celebrities
+        create_celebrity: Create a celebrity
         create_user: Create an user
+        edit_celebrity: Edit celebrity
         forgotten_password: Forgotten password
         legal_notices: Legal notices
+        manage_celebrities: Manage celebrities
         overview_of_your_website: Overview of you website
         search_customers: Search customers
         validate: Validate

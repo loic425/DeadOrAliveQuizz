@@ -6,7 +6,6 @@ use App\Entity\AdminUser;
 use App\Entity\AdminUserInterface;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Sylius\Component\User\Model\User;
 use Sylius\Component\User\Model\UserInterface;
 

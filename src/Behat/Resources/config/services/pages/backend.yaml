@@ -1,5 +1,6 @@
 imports:
     - { resource: backend/administrator.yaml }
+    - { resource: backend/celebrity.yaml }
     - { resource: backend/customer.yaml }
     - { resource: backend/dashboard.yaml }
 
