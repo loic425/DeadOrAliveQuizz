@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 class Round implements ResourceInterface
@@ -21,6 +23,14 @@ class Round implements ResourceInterface
     /** @var GameSession */
     private $gameSession;
 
+    /** @var Collection */
+    private $scores;
+
+    public function __construct()
+    {
+        $this->scores = new ArrayCollection();
+    }
+
     public function getGameSession(): GameSession
     {
         return $this->gameSession;
@@ -29,5 +39,21 @@ class Round implements ResourceInterface
     public function setGameSession(GameSession $gameSession): void
     {
         $this->gameSession = $gameSession;
+    }
+    
+    public function getScores(): Collection
+    {
+        return $this->scores;
+    }
+
+    public function hasScore(RoundScore $score): bool
+    {
+        return $this->scores->contains($score);
+    }
+
+    public function addScore(RoundScore $score): void
+    {
+        $this->scores->add($score);
+        $score->setRound($this);
     }
 }
