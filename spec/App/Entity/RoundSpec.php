@@ -5,6 +5,7 @@ namespace spec\App\Entity;
 use App\Entity\GameSession;
 use App\Entity\Round;
 use App\Entity\RoundScore;
+use App\Entity\Theme;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -32,6 +33,18 @@ class RoundSpec extends ObjectBehavior
         $this->setGameSession($gameSession);
 
         $this->getGameSession()->shouldReturn($gameSession);
+    }
+
+    function it_has_no_theme_by_default(): void
+    {
+        $this->getTheme()->shouldReturn(null);
+    }
+
+    function its_theme_is_mutable(Theme $theme): void
+    {
+        $this->setTheme($theme);
+
+        $this->getTheme()->shouldReturn($theme);
     }
 
     function it_initializes_score_collection_by_default(): void

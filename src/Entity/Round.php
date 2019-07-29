@@ -23,6 +23,9 @@ class Round implements ResourceInterface
     /** @var GameSession */
     private $gameSession;
 
+    /** @var Theme|null */
+    private $theme;
+
     /** @var Collection */
     private $scores;
 
@@ -40,7 +43,17 @@ class Round implements ResourceInterface
     {
         $this->gameSession = $gameSession;
     }
-    
+
+    public function getTheme(): ?Theme
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(?Theme $theme): void
+    {
+        $this->theme = $theme;
+    }
+
     public function getScores(): Collection
     {
         return $this->scores;
