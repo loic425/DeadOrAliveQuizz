@@ -31,6 +31,7 @@ class Theme implements ResourceInterface, TranslatableInterface
 
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
+        getTranslation as private doGetTranslation;
     }
 
     /**
@@ -53,6 +54,17 @@ class Theme implements ResourceInterface, TranslatableInterface
     public function setName(?string $name)
     {
         $this->getTranslation()->setName($name);
+    }
+
+    /**
+     * @return ThemeTranslation
+     */
+    public function getTranslation(?string $locale = null): TranslationInterface
+    {
+        /** @var ThemeTranslation $translation */
+        $translation = $this->doGetTranslation($locale);
+
+        return $translation;
     }
 
     /**
