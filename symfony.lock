@@ -509,6 +509,12 @@
     "sylius/grid-bundle": {
         "version": "v1.2.1"
     },
+    "sylius/locale": {
+        "version": "v1.5.3"
+    },
+    "sylius/locale-bundle": {
+        "version": "v1.5.3"
+    },
     "sylius/mailer": {
         "version": "v1.2.1"
     },

@@ -31,6 +31,10 @@ sylius_fixtures:
                                enabled: true
                        random: 10
 
-                app_celebrity:
+                celebrity:
                     options:
                         random: 100
+
+                theme:
+                    options:
+                        random: 5

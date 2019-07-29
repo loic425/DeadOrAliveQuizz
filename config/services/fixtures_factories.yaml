@@ -1,4 +1,8 @@
 services:
+    _defaults:
+        public: true
+        autowire: true
+
     App\Fixture\Factory\:
         resource: '../../src/Fixture/Factory/*'
         autowire: true
