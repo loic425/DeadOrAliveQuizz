@@ -37,4 +37,5 @@ return [
     Sonata\DatagridBundle\SonataDatagridBundle::class => ['all' => true],
     Sonata\CoreBundle\SonataCoreBundle::class => ['all' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
+    Sylius\Bundle\LocaleBundle\SyliusLocaleBundle::class => ['all' => true],
 ];

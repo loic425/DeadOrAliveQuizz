@@ -7,3 +7,6 @@ sylius_resource:
         app.oauth_client:
             classes:
                 model: App\Entity\OAuth\Client
+        app.theme:
+            classes:
+                model: App\Entity\Theme

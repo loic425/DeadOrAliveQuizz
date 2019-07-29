@@ -19,6 +19,6 @@ class CelebrityFixture extends AbstractResourceFixture
      */
     public function getName(): string
     {
-        return 'app_celebrity';
+        return 'celebrity';
     }
 }
