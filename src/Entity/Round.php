@@ -23,7 +23,7 @@ class Round implements ResourceInterface
     /** @var GameSession */
     private $gameSession;
 
-    /** @var Collection|RoundScore[] */
+    /** @var Collection */
     private $scores;
 
     public function __construct()
@@ -40,7 +40,7 @@ class Round implements ResourceInterface
     {
         $this->gameSession = $gameSession;
     }
-
+    
     public function getScores(): Collection
     {
         return $this->scores;
