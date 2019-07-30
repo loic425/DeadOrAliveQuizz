@@ -2,6 +2,7 @@ imports:
     - { resource: 'grids/backend/admin_user.yml' }
     - { resource: 'grids/backend/celebrity.yaml' }
     - { resource: 'grids/backend/customer.yml' }
+    - { resource: 'grids/backend/theme.yaml' }
 
 sylius_grid:
     templates:
