@@ -12,19 +12,36 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="app_player")
+ */
 class Player implements ResourceInterface
 {
     use IdentifiableTrait;
 
-    /** @var CustomerInterface|null */
+    /**
+     * @var CustomerInterface|null
+     *
+     * @ORM\ManyToOne(targetEntity="Sylius\Component\Customer\Model\CustomerInterface")
+     */
     private $customer;
 
-    /** @var GameSession|null */
+    /**
+     * @var GameSession|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\GameSession")
+     */
     private $gameSession;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $score;
 
     public function getCustomer(): ?CustomerInterface
