@@ -32,6 +32,13 @@ class Customer extends BaseCustomer implements CustomerInterface
     private $user;
 
     /**
+     * @var int|null
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $score;
+
+    /**
      * @return AppUser
      */
     public function getUser(): ?UserInterface
@@ -60,5 +67,15 @@ class Customer extends BaseCustomer implements CustomerInterface
         if ($user instanceof AppUserInterface) {
             $user->setCustomer($this);
         }
+    }
+
+    public function getScore(): ?int
+    {
+        return $this->score;
+    }
+
+    public function setScore(?int $score): void
+    {
+        $this->score = $score;
     }
 }

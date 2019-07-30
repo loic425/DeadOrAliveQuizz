@@ -28,4 +28,8 @@ interface CustomerInterface extends BaseCustomerInterface, UserAwareInterface
      * @return $this
      */
     public function setUser(?UserInterface $user);
+
+    public function getScore(): ?int;
+
+    public function setScore(?int $score): void;
 }

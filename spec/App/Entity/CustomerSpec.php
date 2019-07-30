@@ -56,4 +56,16 @@ class CustomerSpec extends ObjectBehavior
         $this->setUser($user);
         $this->setUser($user);
     }
+
+    function it_has_no_score_by_default(): void
+    {
+        $this->getScore()->shouldReturn(null);
+    }
+
+    function its_score_is_mutable(): void
+    {
+        $this->setScore(42);
+
+        $this->getScore()->shouldReturn(42);
+    }
 }
