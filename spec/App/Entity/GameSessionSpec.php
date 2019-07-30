@@ -3,6 +3,8 @@
 namespace spec\App\Entity;
 
 use App\Entity\GameSession;
+use App\Entity\Round;
+use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
@@ -45,5 +47,18 @@ class GameSessionSpec extends ObjectBehavior
         $this->setEndedAt($endedAt);
 
         $this->getEndedAt()->shouldReturn($endedAt);
+    }
+
+    function it_initializes_round_collection_by_default(): void
+    {
+        $this->getRounds()->shouldHaveType(Collection::class);
+    }
+
+    function it_adds_rounds(Round $round): void
+    {
+        $round->setGameSession($this)->shouldBeCalled();
+
+        $this->addRound($round);
+        $this->hasRound($round)->shouldReturn(true);
     }
 }
