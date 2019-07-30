@@ -9,6 +9,7 @@ app:
         manage_celebrities: Gérer les célébrités
         overview_of_your_website: Aperçu de votre site web
         search_customers: Chercher des clients
+        themes: Thèmes
         validate: Valider
         view_website: Voir le site
     text:

@@ -9,6 +9,7 @@ app:
         manage_celebrities: Manage celebrities
         overview_of_your_website: Overview of you website
         search_customers: Search customers
+        themes: Themes
         validate: Validate
         view_website: View website
 sylius:
