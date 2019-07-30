@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 class GameSession implements ResourceInterface
@@ -23,6 +25,14 @@ class GameSession implements ResourceInterface
 
     /** @var \DateTimeInterface|null */
     private $endedAt;
+
+    /** @var Collection */
+    private $rounds;
+
+    public function __construct()
+    {
+        $this->rounds = new ArrayCollection();
+    }
 
     public function getStartedAt(): ?\DateTimeInterface
     {
@@ -42,5 +52,21 @@ class GameSession implements ResourceInterface
     public function setEndedAt(?\DateTimeInterface $endedAt): void
     {
         $this->endedAt = $endedAt;
+    }
+
+    public function getRounds(): Collection
+    {
+        return $this->rounds;
+    }
+
+    public function hasRound(Round $round): bool
+    {
+        return $this->rounds->contains($round);
+    }
+
+    public function addRound(Round $round): void
+    {
+        $this->rounds->add($round);
+        $round->setGameSession($this);
     }
 }
