@@ -10,3 +10,4 @@ sylius_resource:
         app.theme:
             classes:
                 model: App\Entity\Theme
+                repository: App\Repository\ThemeRepository

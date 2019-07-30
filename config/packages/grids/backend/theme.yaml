@@ -5,11 +5,17 @@ sylius_grid:
                 name: doctrine/orm
                 options:
                     class: "%app.model.theme.class%"
+                    repository:
+                        method: createListQueryBuilder
+                        arguments:
+                            $localeCode: '%locale%'
+            sorting:
+                name: asc
             fields:
                 name:
                     type: string
                     label: sylius.ui.name
-                    sortable: ~
+                    sortable: translation.name
             filters:
                 search:
                     type: string
