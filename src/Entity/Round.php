@@ -14,19 +14,34 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="app_round")
+ */
 class Round implements ResourceInterface
 {
     use IdentifiableTrait;
 
-    /** @var GameSession */
+    /**
+     * @var GameSession
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\GameSession", inversedBy="rounds")
+     */
     private $gameSession;
 
-    /** @var Theme|null */
+    /**
+     * @var Theme|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Theme")
+     */
     private $theme;
 
-    /** @var Collection */
+    /**
+     * @var Collection
+     */
     private $scores;
 
     public function __construct()

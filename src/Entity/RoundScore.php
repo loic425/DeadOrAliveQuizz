@@ -13,19 +13,36 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="app_round_score")
+ */
 class RoundScore implements ResourceInterface
 {
     use IdentifiableTrait;
 
-    /** @var Round */
+    /**
+     * @var Round
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Round")
+     */
     private $round;
 
-    /** @var Player */
+    /**
+     * @var Player
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Player")
+     */
     private $player;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $score;
 
     public function getRound(): Round

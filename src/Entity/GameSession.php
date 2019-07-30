@@ -14,19 +14,36 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="app_game_session")
+ */
 class GameSession implements ResourceInterface
 {
     use IdentifiableTrait;
 
-    /** @var \DateTimeInterface|null */
+    /**
+     * @var \DateTimeInterface|null
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private $startedAt;
 
-    /** @var \DateTimeInterface|null */
+    /**
+     * @var \DateTimeInterface|null
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
     private $endedAt;
 
-    /** @var Collection */
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Round", mappedBy="gameSession")
+     */
     private $rounds;
 
     public function __construct()

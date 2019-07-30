@@ -1,11 +1,11 @@
 <h1 align="center">
-    <img src="https://github.com/Monofony/SymfonyStarter/blob/master/docs/_images/logo_big.png" />
+    Dead or Alive Quizz
     <br />
-    <a href="http://travis-ci.org/Monofony/SymfonyStarter" title="Build status" target="_blank">
-        <img src="https://img.shields.io/travis/Monofony/SymfonyStarter/master.svg" />
+    <a href="http://travis-ci.org/loic425/DeadOrAliveQuizz" title="Build status" target="_blank">
+        <img src="https://travis-ci.com/loic425/DeadOrAliveQuizz.svg?branch=master" />
     </a>
-    <a href="https://scrutinizer-ci.com/g/Monofony/SymfonyStarter/" title="Scrutinizer" target="_blank">
-        <img src="https://img.shields.io/scrutinizer/g/Monofony/SymfonyStarter.svg" />
+    <a href="https://scrutinizer-ci.com/g/loic425/DeadOrAliveQuizz/" title="Scrutinizer" target="_blank">
+        <img src="https://img.shields.io/scrutinizer/g/loic425/DeadOrAliveQuizz.svg" />
     </a>    
 </h1>
 
