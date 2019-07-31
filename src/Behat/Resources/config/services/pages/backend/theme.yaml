@@ -1,0 +1,15 @@
+services:
+      App\Behat\Page\Backend\Theme\CreatePage:
+          parent: app.behat.page.backend.crud.create
+          public: false
+          arguments: ["app_backend_theme_create"]
+
+      App\Behat\Page\Backend\Theme\IndexPage:
+          parent: app.behat.page.backend.crud.index
+          public: false
+          arguments: ["app_backend_theme_index"]
+
+      App\Behat\Page\Backend\Theme\UpdatePage:
+          parent: app.behat.page.backend.crud.update
+          public: false
+          arguments: ["app_backend_theme_update"]

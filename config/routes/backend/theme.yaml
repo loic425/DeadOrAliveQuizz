@@ -8,6 +8,8 @@ app_backend_theme:
         vars:
             all:
                 subheader: app.ui.manage_themes
+                templates:
+                    form: backend/theme/_form.html.twig
             index:
                 icon: tag
         templates: backend/crud

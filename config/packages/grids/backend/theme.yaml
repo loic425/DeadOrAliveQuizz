@@ -8,7 +8,7 @@ sylius_grid:
                     repository:
                         method: createListQueryBuilder
                         arguments:
-                            $localeCode: '%locale%'
+                            $localeCode: "expr:service('sylius.context.locale').getLocaleCode()"
             sorting:
                 name: asc
             fields:

@@ -16,28 +16,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
+use Sylius\Component\Resource\Model\TranslationInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_theme_translation")
  */
-class ThemeTranslation extends AbstractTranslation implements ResourceInterface
+class ThemeTranslation extends AbstractTranslation implements ResourceInterface, TranslationInterface
 {
     use IdentifiableTrait;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(type="string")
-     */
-    protected $locale;
-
-    /**
-     * @var TranslatableInterface|null
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Theme", inversedBy="translations")
-     */
-    protected $translatable;
 
     /**
      * @var string|null

@@ -4,9 +4,12 @@ app:
         create_celebrity: Create a celebrity
         create_user: Create an user
         edit_celebrity: Edit celebrity
+        edit_theme: Edit theme
         forgotten_password: Forgotten password
         legal_notices: Legal notices
         manage_celebrities: Manage celebrities
+        manage_themes: Manage themes
+        new_theme: New theme
         overview_of_your_website: Overview of you website
         search_customers: Search customers
         themes: Themes

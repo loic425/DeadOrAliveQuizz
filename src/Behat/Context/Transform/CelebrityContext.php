@@ -30,7 +30,7 @@ class CelebrityContext implements Context
      * @Transform /^celebrity "([^"]+)"$/
      * @Transform :celebrity
      */
-    public function getCelebrityByFullName(string $fullName)
+    public function getCelebrityByFullName(string $fullName): Celebrity
     {
         [$firstName, $lastName] = explode(' ', $fullName);
 

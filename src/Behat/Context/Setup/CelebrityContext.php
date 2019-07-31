@@ -39,7 +39,7 @@ class CelebrityContext implements Context
     /**
      * @Given there is (also )a celebrity :firstName :lastName
      */
-    public function thereIsCustomerWithNameAndEmail($firstName, $lastName): void
+    public function thereIsCelebrityWithFirstNameAndLastName($firstName, $lastName): void
     {
         $this->createCelebrity([
             'first_name' => $firstName,

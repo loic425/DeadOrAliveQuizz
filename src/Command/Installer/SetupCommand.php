@@ -12,6 +12,7 @@
 namespace App\Command\Installer;
 
 use App\Entity\AdminUser;
+use App\Installer\Setup\LocaleSetup;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -41,16 +42,21 @@ final class SetupCommand extends Command
     /** @var ValidatorInterface */
     private $validator;
 
+    /** @var LocaleSetup */
+    private $localeSetup;
+
     public function __construct(
         ObjectManager $adminUserManager,
         FactoryInterface $adminUserFactory,
         UserRepositoryInterface $adminUserRepository,
-        ValidatorInterface $validator
+        ValidatorInterface $validator,
+        LocaleSetup $localeSetup
     ) {
         $this->adminUserManager = $adminUserManager;
         $this->adminUserFactory = $adminUserFactory;
         $this->adminUserRepository = $adminUserRepository;
         $this->validator = $validator;
+        $this->localeSetup = $localeSetup;
 
         parent::__construct();
     }
@@ -75,6 +81,7 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $this->localeSetup->setup($input, $output);
         $this->setupAdministratorUser($input, $output);
     }
 

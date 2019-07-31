@@ -21,10 +21,24 @@ class ThemeRepository extends EntityRepository
         $queryBuilder = $this->createQueryBuilder('o');
         $queryBuilder
             ->addSelect('translation')
-            ->leftJoin('o.translations', 'translation')
+            ->innerJoin('o.translations', 'translation')
             ->andWhere('translation.locale = :localeCode')
             ->setParameter('localeCode', $localeCode);
 
         return $queryBuilder;
+    }
+
+    public function findByName(string $name, string $locale): array
+    {
+        return $this->createQueryBuilder('o')
+            ->addSelect('translation')
+            ->innerJoin('o.translations', 'translation')
+            ->andWhere('translation.name = :name')
+            ->andWhere('translation.locale = :locale')
+            ->setParameter('name', $name)
+            ->setParameter('locale', $locale)
+            ->getQuery()
+            ->getResult()
+            ;
     }
 }

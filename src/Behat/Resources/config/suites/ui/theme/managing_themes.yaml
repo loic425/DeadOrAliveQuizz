@@ -1,0 +1,17 @@
+default:
+    suites:
+        ui_managing_themes:
+            contexts:
+                - App\Behat\Context\Hook\DoctrineORMContext
+
+                - App\Behat\Context\Setup\AdminSecurityContext
+                - App\Behat\Context\Setup\LocaleContext
+                - App\Behat\Context\Setup\ThemeContext
+
+                - App\Behat\Context\Transform\ThemeContext
+                - App\Behat\Context\Transform\SharedStorageContext
+
+                - App\Behat\Context\Ui\Backend\ManagingThemesContext
+                - App\Behat\Context\Ui\Backend\NotificationContext
+            filters:
+                tags: "@managing_themes && @ui"
