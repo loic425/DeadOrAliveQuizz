@@ -68,6 +68,7 @@ class AppUserExampleFactory extends AbstractExampleFactory implements ExampleFac
         $customer->setEmail($options['email']);
         $customer->setFirstName($options['first_name']);
         $customer->setLastName($options['last_name']);
+        $customer->setScore($options['score']);
 
         /** @var AppUserInterface $user */
         $user = $this->appUserFactory->createNew();
@@ -114,6 +115,10 @@ class AppUserExampleFactory extends AbstractExampleFactory implements ExampleFac
 
             ->setDefault('roles', [])
             ->setAllowedTypes('roles', 'array')
+
+            ->setDefault('score', function (Options $options) {
+                return $this->faker->numberBetween(1, 2000);
+            })
         ;
     }
 }
