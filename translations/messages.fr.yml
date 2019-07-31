@@ -8,6 +8,7 @@ app:
         edit_celebrity: Modifier la célébrité
         edit_theme: Modifier le thème
         forgotten_password: Mot de passe oublié
+        game_sesions.choice: "{0} parties |{1} 1 partie |] 1, Inf] %count% parties"
         legal_notices: Mentions légales
         manage_celebrities: Gérer les célébrités
         manage_themes: Gérer les thèmes

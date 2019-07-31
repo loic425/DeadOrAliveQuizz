@@ -8,6 +8,7 @@ app:
         edit_celebrity: Edit celebrity
         edit_theme: Edit theme
         forgotten_password: Forgotten password
+        game_sesions.choice: "{0} game sessions |{1} 1 game session |] 1, Inf] %count% game sessions"
         legal_notices: Legal notices
         manage_celebrities: Manage celebrities
         manage_themes: Manage themes
