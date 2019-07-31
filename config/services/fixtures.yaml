@@ -15,6 +15,10 @@ services:
         arguments:
             $exampleFactory: '@App\Fixture\Factory\CelebrityExampleFactory'
 
+    App\Fixture\LocaleFixture:
+        arguments:
+            $baseLocaleCode: '%locale%'
+
     App\Fixture\ThemeFixture:
         arguments:
             $exampleFactory: '@App\Fixture\Factory\ThemeExampleFactory'
