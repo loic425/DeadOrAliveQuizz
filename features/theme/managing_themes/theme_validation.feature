@@ -5,7 +5,8 @@ Feature: themes validation
     I want to be prevented from adding it without specifying required fields
 
     Background:
-        Given I am logged in as an administrator
+        Given the website has locale "en_US"
+        And I am logged in as an administrator
 
     @ui
     Scenario: Trying to add a new theme without first name

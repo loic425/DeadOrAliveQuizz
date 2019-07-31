@@ -20,6 +20,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class ThemeType extends AbstractType
 {
@@ -32,6 +33,7 @@ class ThemeType extends AbstractType
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => ThemeTranslationType::class,
                 'label' => 'sylius.ui.name',
+                'constraints' => [new Valid()],
             ])
         ;
     }

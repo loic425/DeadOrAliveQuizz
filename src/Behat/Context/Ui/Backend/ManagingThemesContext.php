@@ -123,6 +123,14 @@ class ManagingThemesContext implements Context
     }
 
     /**
+     * @Then I should be notified that the :elementName is required
+     */
+    public function iShouldBeNotifiedThatElementIsRequired(string $elementName): void
+    {
+        Assert::same($this->createPage->getValidationMessage($elementName), sprintf('This value should not be blank.'));
+    }
+
+    /**
      * @Then I should see a single theme in the list
      * @Then /^there should be (\d+) themes in the list$/
      */
@@ -147,5 +155,14 @@ class ManagingThemesContext implements Context
     public function thereShouldBeNoAnymore(string $name)
     {
         Assert::false($this->indexPage->isSingleResourceOnPage(['name' => $name]));
+    }
+
+    /**
+     * @Then this theme should not be added
+     */
+    public function thisThemeShouldNotBeAdded()
+    {
+        $this->indexPage->open();
+        Assert::same($this->indexPage->countItems(), 0);
     }
 }

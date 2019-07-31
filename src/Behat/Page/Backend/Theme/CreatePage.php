@@ -14,12 +14,22 @@ declare(strict_types=1);
 namespace App\Behat\Page\Backend\Theme;
 
 use App\Behat\Page\Backend\Crud\CreatePage as BaseCreatePage;
+use Behat\Mink\Element\NodeElement;
 
 class CreatePage extends BaseCreatePage
 {
     public function nameIt(?string $name, string $languageCode): void
     {
         $this->getElement('name', ['%language%' => $languageCode])->setValue($name);
+    }
+
+    protected function getElement(string $name, array $parameters = []): NodeElement
+    {
+        if (!isset($parameters['%language%'])) {
+            $parameters['%language%'] = 'en_US';
+        }
+
+        return parent::getElement($name, $parameters);
     }
 
     protected function getDefinedElements(): array

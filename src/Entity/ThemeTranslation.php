@@ -15,8 +15,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslationInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -30,6 +30,8 @@ class ThemeTranslation extends AbstractTranslation implements ResourceInterface,
      * @var string|null
      *
      * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank
      */
     private $name;
 
