@@ -60,7 +60,7 @@ class Theme implements ResourceInterface, TranslatableInterface
     /**
      * {@inheritdoc}
      */
-    protected function createTranslation(): ThemeTranslation
+    protected function createTranslation(): TranslationInterface
     {
         return new ThemeTranslation();
     }

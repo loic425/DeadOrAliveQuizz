@@ -36,14 +36,18 @@ final class TranslationLocaleProvider implements TranslationLocaleProviderInterf
      */
     public function getDefinedLocalesCodes(): array
     {
+        /** @var array|LocaleInterface[] $locales */
         $locales = $this->localeRepository->findAll();
 
-        return array_map(
-            function (LocaleInterface $locale) {
+        /** @var array $localesCodes */
+        $localesCodes = array_map(
+            function (LocaleInterface $locale): ?string {
                 return $locale->getCode();
             },
             $locales
         );
+
+        return $localesCodes;
     }
 
     /**
