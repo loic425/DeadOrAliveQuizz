@@ -9,6 +9,7 @@ sylius_fixtures:
                 logger: ~
 
             fixtures:
+                locale: ~
                 admin_user:
                     name: "admin_user"
                     options:
