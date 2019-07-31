@@ -5,6 +5,7 @@ imports:
 
 parameters:
     secret: '%env(resolve:APP_SECRET)%'
+    app.security.api_regex: '^/api'
 
 security:
 
@@ -44,11 +45,27 @@ security:
                 target: sylius_backend_login
             anonymous: true
 
+        api_auth:
+            pattern: '%app.security.api_regex%/login'
+            anonymous: true
+            stateless: true
+            form_login:
+                check_path: /api/login
+                provider: sylius_app_user_provider
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+                username_parameter: username
+                password_parameter: password
+                require_previous_session: false
+
         api:
-            pattern:    ^/api
+            pattern: '%app.security.api_regex%/.*'
             provider: sylius_app_user_provider
-            fos_oauth:  true
             stateless:  true
+            anonymous: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
 
         app:
             switch_user: true
@@ -84,4 +101,5 @@ security:
         - { path: ^/admin/login-check, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/dashboard, role: ROLE_ADMIN }
         - { path: "^/admin.*", role: ROLE_ADMIN }
-        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
+
+        - { path: '%app.security.api_regex%/login', role: IS_AUTHENTICATED_ANONYMOUSLY }

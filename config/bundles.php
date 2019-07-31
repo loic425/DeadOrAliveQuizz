@@ -38,4 +38,5 @@ return [
     Sonata\CoreBundle\SonataCoreBundle::class => ['all' => true],
     FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true],
     Sylius\Bundle\LocaleBundle\SyliusLocaleBundle::class => ['all' => true],
+    Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
 ];

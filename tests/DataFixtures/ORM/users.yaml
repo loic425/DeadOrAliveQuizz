@@ -1,0 +1,13 @@
+App\Entity\AppUser:
+    challenged_user:
+        plainPassword: sylius
+        roles: [ROLE_USER]
+        enabled: true
+        customer: "@challenged_customer"
+        username: sam-le-pirate
+
+App\Entity\Customer:
+    challenged_customer:
+        email: challenged-customer@example.com
+        firstName: Sam
+        lastName: Le Pirate
