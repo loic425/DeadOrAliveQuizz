@@ -10,10 +10,12 @@
             "Controller",
             "DependencyInjection",
             "Formatter",
+            "Installer",
             "Menu",
             "Migrations",
             "Fixture",
             "Form/Type",
+            "Repository",
             "Kernel.php"
         ]
     },

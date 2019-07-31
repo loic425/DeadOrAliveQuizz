@@ -4,11 +4,15 @@ app:
         create_celebrity: Créer une célébrité
         create_user: Créer un utilisateur
         edit_celebrity: Modifier la célébrité
+        edit_theme: Modifier le thème
         forgotten_password: Mot de passe oublié
         legal_notices: Mentions légales
         manage_celebrities: Gérer les célébrités
+        manage_themes: Gérer les thèmes
+        new_theme: Nouveau thème
         overview_of_your_website: Aperçu de votre site web
         search_customers: Chercher des clients
+        themes: Thèmes
         validate: Valider
         view_website: Voir le site
     text:

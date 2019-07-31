@@ -51,9 +51,15 @@ final class AdminMenuBuilder
         $customer = $menu
             ->addChild('content')
             ->setLabel('sylius.ui.content');
+
         $customer->addChild('backend_celebrity', ['route' => 'app_backend_celebrity_index'])
             ->setLabel('app.ui.celebrities')
             ->setLabelAttribute('icon', 'star');
+
+        $customer->addChild('backend_theme', ['route' => 'app_backend_theme_index'])
+            ->setLabel('app.ui.themes')
+            ->setLabelAttribute('icon', 'tag');
+
         return $customer;
     }
 

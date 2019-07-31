@@ -10,3 +10,10 @@ sylius_resource:
         app.theme:
             classes:
                 model: App\Entity\Theme
+                repository: App\Repository\ThemeRepository
+                form: App\Form\Type\Theme\ThemeType
+            translation:
+                classes:
+                    model: App\Entity\ThemeTranslation
+    translation:
+        locale_provider: App\Provider\TranslationLocaleProvider

@@ -19,3 +19,6 @@ sylius_backend_customer:
 
 sylius_backend_security:
     resource: "backend/security.yaml"
+
+app_backend_theme:
+    resource: "backend/theme.yaml"

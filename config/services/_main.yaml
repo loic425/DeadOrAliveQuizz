@@ -21,5 +21,9 @@ services:
         resource: '../../src/Controller'
         tags: ['controller.service_arguments']
 
+    App\Provider\TranslationLocaleProvider:
+        arguments:
+            $defaultLocaleCode: '%locale%'
+
     Sylius\Component\User\Canonicalizer\CanonicalizerInterface: '@sylius.canonicalizer'
     Sylius\Component\User\Security\Generator\GeneratorInterface: '@sylius.app_user.token_generator.email_verification'
