@@ -1,0 +1,16 @@
+sylius_grid:
+    grids:
+        sylius_frontend_customer:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%sylius.model.customer.class%"
+                    repository:
+                        method: createWithUsersQueryBuilder
+            limits: ~
+            sorting:
+                score: desc
+            fields:
+                score:
+                    type: string
+                    sortable: ~

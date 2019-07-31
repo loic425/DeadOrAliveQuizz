@@ -3,6 +3,8 @@ app:
         celebrities: Celebrities
         create_celebrity: Create a celebrity
         create_user: Create an user
+        challenge_a_player: Challenge a player
+        challenge_this_player: Challenge this player
         edit_celebrity: Edit celebrity
         edit_theme: Edit theme
         forgotten_password: Forgotten password

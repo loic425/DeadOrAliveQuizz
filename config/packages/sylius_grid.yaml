@@ -4,6 +4,8 @@ imports:
     - { resource: 'grids/backend/customer.yml' }
     - { resource: 'grids/backend/theme.yaml' }
 
+    - { resource: 'grids/frontend/customer.yaml' }
+
 sylius_grid:
     templates:
         action:

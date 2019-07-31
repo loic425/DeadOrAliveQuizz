@@ -3,6 +3,8 @@ app:
         celebrities: Célébrités
         create_celebrity: Créer une célébrité
         create_user: Créer un utilisateur
+        challenge_a_player: Défier un joueur
+        challenge_this_player: Défier ce joueur
         edit_celebrity: Modifier la célébrité
         edit_theme: Modifier le thème
         forgotten_password: Mot de passe oublié
@@ -11,6 +13,7 @@ app:
         manage_themes: Gérer les thèmes
         new_theme: Nouveau thème
         overview_of_your_website: Aperçu de votre site web
+        players: Joueurs
         search_customers: Chercher des clients
         themes: Thèmes
         validate: Valider

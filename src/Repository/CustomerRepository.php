@@ -13,10 +13,18 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use Doctrine\ORM\QueryBuilder;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 class CustomerRepository extends EntityRepository
 {
+    public function createWithUsersQueryBuilder(): QueryBuilder
+    {
+        return $this->createQueryBuilder('o')
+            ->addSelect('user')
+            ->join('o.user', 'user');
+    }
+
     public function countCustomers(): int
     {
         return (int) $this->createQueryBuilder('o')

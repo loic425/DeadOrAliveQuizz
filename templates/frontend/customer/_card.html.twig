@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="content">
+        <img class="right floated mini ui image circular" src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
+        <div class="header">
+            {{ customer.user.username }}
+        </div>
+        <div class="meta">
+            {{ customer.score }}
+        </div>
+        <div class="description">
+            Elliot requested permission to view your contact details
+        </div>
+    </div>
+    <div class="extra content center aligned">
+        <div class="ui one buttons">
+            <div class="ui basic green button">{{ 'app.ui.challenge_this_player'|trans }}</div>
+        </div>
+    </div>
+</div>

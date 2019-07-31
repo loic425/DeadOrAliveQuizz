@@ -1,0 +1,9 @@
+sylius_frontend_customer_index:
+    methods: [GET]
+    path: /players/
+    defaults:
+        _controller: sylius.controller.customer::indexAction
+        _sylius:
+            grid: sylius_frontend_customer
+            paginate: 12
+            template: frontend/customer/index.html.twig

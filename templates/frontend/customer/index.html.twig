@@ -1,0 +1,21 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% block content %}
+    <div class="ui hidden divider"></div>
+    <div class="ui one column centered stackable grid">
+        <div class="column">
+            <h1 class="ui header">
+                <i class="circular users icon"></i>
+                <div class="content">
+                    {{ 'app.ui.players'|trans }}
+                    <div class="sub header">{{ 'app.ui.challenge_a_player'|trans }}</div>
+                </div>
+            </h1>
+            <div class="ui cards">
+                {% for customer in customers.data %}
+                    {% include 'frontend/customer/_card.html.twig' with { 'customer': customer } %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
