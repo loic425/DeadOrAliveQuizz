@@ -40,6 +40,27 @@ class GameSession implements ResourceInterface
     private $endedAt;
 
     /**
+     * @var CustomerInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Sylius\Component\Customer\Model\CustomerInterface")
+     */
+    private $author;
+
+    /**
+     * @var CustomerInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Sylius\Component\Customer\Model\CustomerInterface")
+     */
+    private $challengedCustomer;
+
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Player", mappedBy="gameSession")
+     */
+    private $players;
+
+    /**
      * @var Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Round", mappedBy="gameSession")
@@ -49,6 +70,7 @@ class GameSession implements ResourceInterface
     public function __construct()
     {
         $this->rounds = new ArrayCollection();
+        $this->players = new ArrayCollection();
     }
 
     public function getStartedAt(): ?\DateTimeInterface
@@ -69,6 +91,42 @@ class GameSession implements ResourceInterface
     public function setEndedAt(?\DateTimeInterface $endedAt): void
     {
         $this->endedAt = $endedAt;
+    }
+
+    public function getAuthor(): CustomerInterface
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(CustomerInterface $author): void
+    {
+        $this->author = $author;
+    }
+
+    public function getChallengedCustomer(): CustomerInterface
+    {
+        return $this->challengedCustomer;
+    }
+
+    public function setChallengedCustomer(CustomerInterface $challengedCustomer): void
+    {
+        $this->challengedCustomer = $challengedCustomer;
+    }
+
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    public function hasPlayer(Player $player): bool
+    {
+        return $this->players->contains($player);
+    }
+
+    public function addPlayer(Player $player): void
+    {
+        $this->players->add($player);
+        $player->setGameSession($this);
     }
 
     public function getRounds(): Collection

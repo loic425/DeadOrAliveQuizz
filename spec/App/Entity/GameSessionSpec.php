@@ -2,7 +2,9 @@
 
 namespace spec\App\Entity;
 
+use App\Entity\CustomerInterface;
 use App\Entity\GameSession;
+use App\Entity\Player;
 use App\Entity\Round;
 use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
@@ -49,9 +51,36 @@ class GameSessionSpec extends ObjectBehavior
         $this->getEndedAt()->shouldReturn($endedAt);
     }
 
+    function its_author_is_mutable(CustomerInterface $author): void
+    {
+        $this->setAuthor($author);
+
+        $this->getAuthor()->shouldReturn($author);
+    }
+
+    function its_challenged_customer_is_mutable(CustomerInterface $challengedCustomer): void
+    {
+        $this->setChallengedCustomer($challengedCustomer);
+
+        $this->getChallengedCustomer()->shouldReturn($challengedCustomer);
+    }
+
+    function it_initializes_player_collection_by_default(): void
+    {
+        $this->getPlayers()->shouldHaveType(Collection::class);
+    }
+
     function it_initializes_round_collection_by_default(): void
     {
         $this->getRounds()->shouldHaveType(Collection::class);
+    }
+
+    function it_adds_players(Player $player): void
+    {
+        $player->setGameSession($this)->shouldBeCalled();
+
+        $this->addPlayer($player);
+        $this->hasPlayer($player)->shouldReturn(true);
     }
 
     function it_adds_rounds(Round $round): void

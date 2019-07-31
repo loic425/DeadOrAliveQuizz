@@ -33,7 +33,7 @@ class Player implements ResourceInterface
     /**
      * @var GameSession|null
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\GameSession")
+     * @ORM\ManyToOne(targetEntity="App\Entity\GameSession", inversedBy="players")
      */
     private $gameSession;
 
