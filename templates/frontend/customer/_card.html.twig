@@ -1,19 +1,32 @@
 <div class="card">
+    <div class="blurring dimmable image">
+        <div class="ui dimmer transition hidden">
+            <div class="content">
+                <div class="center">
+                    <div class="ui inverted button">{{ 'app.ui.challenge_this_player'|trans }}</div>
+                </div>
+            </div>
+        </div>
+
+        {% set avatar %}
+            {% if (loop.index0 % 2) == 0 %}
+                {{ 'https://semantic-ui.com/images/avatar/large/jenny.jpg' }}
+            {% else %}
+                {{ 'https://semantic-ui.com/images/avatar/large/elliot.jpg' }}
+            {% endif %}
+        {% endset %}
+        <img src="{{ avatar }}">
+    </div>
     <div class="content">
-        <img class="right floated mini ui image circular" src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
-        <div class="header">
-            {{ customer.user.username }}
-        </div>
+        <a class="header">{{ customer.user.username }}</a>
         <div class="meta">
-            {{ customer.score }}
-        </div>
-        <div class="description">
-            Elliot requested permission to view your contact details
+            {{ customer.score }} pts
         </div>
     </div>
-    <div class="extra content center aligned">
-        <div class="ui one buttons">
-            <div class="ui basic green button">{{ 'app.ui.challenge_this_player'|trans }}</div>
-        </div>
+    <div class="extra content">
+        <a>
+            <i class="users icon"></i>
+            2 Members
+        </a>
     </div>
 </div>
