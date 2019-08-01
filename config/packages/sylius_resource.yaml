@@ -13,6 +13,10 @@ sylius_resource:
         app.player:
             classes:
                 model: App\Entity\Player
+        app.round:
+            classes:
+                model: App\Entity\Round
+                form: App\Form\Type\RoundType
         app.theme:
             classes:
                 model: App\Entity\Theme

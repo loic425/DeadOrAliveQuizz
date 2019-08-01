@@ -1,6 +1,9 @@
 app_api_game_session:
     resource: "api/game_session.yaml"
 
+app_api_round:
+    resource: "api/round.yaml"
+
 app_api_security:
     resource: "api/security.yaml"
 
