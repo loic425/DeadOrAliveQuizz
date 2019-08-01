@@ -3,3 +3,6 @@ app_api_game_session:
 
 app_api_security:
     resource: "api/security.yaml"
+
+app_api_theme:
+    resource: "api/theme.yaml"
