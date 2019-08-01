@@ -15,11 +15,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_round")
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 class Round implements ResourceInterface
 {
@@ -36,6 +39,9 @@ class Round implements ResourceInterface
      * @var Theme|null
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Theme")
+     *
+     * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Detailed"})
      */
     private $theme;
 

@@ -1,0 +1,11 @@
+app_api_round_create:
+    methods: [POST]
+    path: /game_sessions/{gameSessionId}/rounds
+    defaults:
+        _controller: app.controller.round:createAction
+        _sylius:
+            factory:
+                method: createForGameSession
+                arguments:
+                    - "expr:notFoundOnNull(service('app.repository.game_session').find($gameSessionId))"
+            serialization_contexts: [Default, Detailed]

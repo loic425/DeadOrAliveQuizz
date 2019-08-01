@@ -4,3 +4,8 @@ services:
         arguments:
             $factory: '@App\Factory\GameSessionFactory.inner'
             $playerFactory: '@app.factory.player'
+
+    App\Factory\RoundFactory:
+        decorates: 'app.factory.round'
+        arguments:
+            $factory: '@App\Factory\RoundFactory.inner'
