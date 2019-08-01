@@ -4,7 +4,6 @@ namespace spec\App\Entity;
 
 use App\Entity\Celebrity;
 use App\Entity\Question;
-use App\Entity\Round;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
@@ -23,18 +22,6 @@ class QuestionSpec extends ObjectBehavior
     function it_has_no_id_by_default(): void
     {
         $this->getId()->shouldReturn(null);
-    }
-
-    function it_has_no_round_by_default(): void
-    {
-        $this->getRound()->shouldReturn(null);
-    }
-
-    function its_round_is_mutable(Round $round): void
-    {
-        $this->setRound($round);
-
-        $this->getRound()->shouldReturn($round);
     }
 
     function it_has_no_celebrity_by_default(): void

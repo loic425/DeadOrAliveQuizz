@@ -5,6 +5,11 @@ services:
             $factory: '@App\Factory\GameSessionFactory.inner'
             $playerFactory: '@app.factory.player'
 
+    App\Factory\QuestionFactory:
+        decorates: 'app.factory.question'
+        arguments:
+            $factory: '@App\Factory\QuestionFactory.inner'
+
     App\Factory\RoundFactory:
         decorates: 'app.factory.round'
         arguments:

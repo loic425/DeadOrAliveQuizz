@@ -13,6 +13,9 @@ sylius_resource:
         app.player:
             classes:
                 model: App\Entity\Player
+        app.question:
+            classes:
+                model: App\Entity\Question
         app.round:
             classes:
                 model: App\Entity\Round

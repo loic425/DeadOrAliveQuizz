@@ -46,6 +46,17 @@ class Round implements ResourceInterface
     private $theme;
 
     /**
+     * @var Question|null
+     *
+     * @ORM\OneToOne(targetEntity="App\Entity\Question", cascade={"persist"})
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     *
+     * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Detailed"})
+     */
+    private $question;
+
+    /**
      * @var Collection
      */
     private $scores;
@@ -73,6 +84,16 @@ class Round implements ResourceInterface
     public function setTheme(?Theme $theme): void
     {
         $this->theme = $theme;
+    }
+
+    public function getQuestion(): ?Question
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(?Question $question): void
+    {
+        $this->question = $question;
     }
 
     public function getScores(): Collection
