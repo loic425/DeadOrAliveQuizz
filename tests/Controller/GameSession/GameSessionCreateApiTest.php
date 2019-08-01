@@ -42,6 +42,6 @@ class GameSessionCreateApiTest extends JsonApiTestCase
 
     private function getUserUrl(AppUserInterface $user): string
     {
-        return '/api/users/'.$user->getEmailCanonical();
+        return '/api/users/'.$user->getUsernameCanonical();
     }
 }
