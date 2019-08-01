@@ -1,0 +1,41 @@
+[
+    {
+        "id": @integer@,
+        "translations": [
+            {
+                "locale": "en_US",
+                "name": "Cinema",
+                "id": @integer@
+            }
+        ],
+        "translations_cache": [],
+        "current_locale": "en_US",
+        "fallback_locale": "en_US"
+    },
+    {
+        "id": @integer@,
+        "translations": [
+            {
+                "locale": "en_US",
+                "name": "Theater",
+                "id": @integer@
+            }
+        ],
+        "translations_cache": [],
+        "current_locale": "en_US",
+        "fallback_locale": "en_US"
+    },
+    {
+        "id": @integer@,
+        "translations": [
+            {
+                "locale": "en_US",
+                "name": "Tv-Show",
+                "id": @integer@
+            }
+        ],
+        "translations_cache": [],
+        "current_locale": "en_US",
+        "fallback_locale": "en_US"
+    }
+]

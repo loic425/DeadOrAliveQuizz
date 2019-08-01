@@ -1,0 +1,8 @@
+app_api_theme_index:
+    methods: [GET]
+    path: /game_sessions/{gameSessionId}/themes
+    defaults:
+        _controller: app.controller.theme:indexAction
+        _sylius:
+            paginate: false
+            serialization_contexts: [Default]

@@ -1,0 +1,5 @@
+App\Entity\Theme:
+    theme_{Cinema, Theater, Tv-Show}:
+        fallbackLocale: "en_US"
+        currentLocale: "en_US"
+        name: <current()>
