@@ -28,17 +28,12 @@ class GameSessionFactory implements FactoryInterface
     /** @var FactoryInterface */
     private $playerFactory;
 
-    /** @var RoundFactory */
-    private $roundFactory;
-
     public function __construct(
         FactoryInterface $factory,
-        FactoryInterface $playerFactory,
-        FactoryInterface $roundFactory
+        FactoryInterface $playerFactory
     ) {
         $this->factory = $factory;
         $this->playerFactory = $playerFactory;
-        $this->roundFactory = $roundFactory;
     }
 
     public function createNew(): GameSession
