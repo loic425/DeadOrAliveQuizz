@@ -40,14 +40,14 @@ class GameSession implements ResourceInterface
     private $endedAt;
 
     /**
-     * @var CustomerInterface
+     * @var CustomerInterface|null
      *
      * @ORM\ManyToOne(targetEntity="Sylius\Component\Customer\Model\CustomerInterface")
      */
     private $author;
 
     /**
-     * @var CustomerInterface
+     * @var CustomerInterface|null
      *
      * @ORM\ManyToOne(targetEntity="Sylius\Component\Customer\Model\CustomerInterface")
      */
@@ -56,7 +56,7 @@ class GameSession implements ResourceInterface
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\Player", mappedBy="gameSession")
+     * @ORM\OneToMany(targetEntity="App\Entity\Player", mappedBy="gameSession", cascade={"persist"})
      */
     private $players;
 
@@ -93,22 +93,22 @@ class GameSession implements ResourceInterface
         $this->endedAt = $endedAt;
     }
 
-    public function getAuthor(): CustomerInterface
+    public function getAuthor(): ?CustomerInterface
     {
         return $this->author;
     }
 
-    public function setAuthor(CustomerInterface $author): void
+    public function setAuthor(?CustomerInterface $author): void
     {
         $this->author = $author;
     }
 
-    public function getChallengedCustomer(): CustomerInterface
+    public function getChallengedCustomer(): ?CustomerInterface
     {
         return $this->challengedCustomer;
     }
 
-    public function setChallengedCustomer(CustomerInterface $challengedCustomer): void
+    public function setChallengedCustomer(?CustomerInterface $challengedCustomer): void
     {
         $this->challengedCustomer = $challengedCustomer;
     }

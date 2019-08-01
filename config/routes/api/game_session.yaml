@@ -1,0 +1,12 @@
+app_api_game_session_create:
+    methods: [POST]
+    path: /users/{email}/game_sessions
+    defaults:
+        _controller: app.controller.game_session:createAction
+        _sylius:
+            factory:
+                method: createForCustomerWithChallengedCustomer
+                arguments:
+                    - "expr:notFoundOnNull(service('app.context.customer').getCustomer())"
+                    - "expr:notFoundOnNull(service('sylius.repository.customer').findOneByEmail($email))"
+            serialization_contexts: [Default, Detailed]

@@ -16,8 +16,6 @@ namespace App\Factory;
 use App\Entity\CustomerInterface;
 use App\Entity\GameSession;
 use App\Entity\Player;
-use App\Entity\Round;
-use App\Entity\RoundScore;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 
 class GameSessionFactory implements FactoryInterface
@@ -44,11 +42,13 @@ class GameSessionFactory implements FactoryInterface
         return $gameSession;
     }
 
-    public function createForCustomerWithChallenger(
+    public function createForCustomerWithChallengedCustomer(
         CustomerInterface $customer,
         CustomerInterface $challengedCustomer
     ): GameSession {
         $gameSession = $this->createNew();
+        $gameSession->setAuthor($customer);
+        $gameSession->setChallengedCustomer($challengedCustomer);
         $players = $this->createPlayers([$customer, $challengedCustomer]);
 
         foreach ($players as $player) {
@@ -61,7 +61,7 @@ class GameSessionFactory implements FactoryInterface
     private function createPlayers(array $customers): iterable
     {
         foreach ($customers as $customer) {
-            /** @var Player $firstPlayer */
+            /** @var Player $player */
             $player = $this->playerFactory->createNew();
             $player->setCustomer($customer);
 

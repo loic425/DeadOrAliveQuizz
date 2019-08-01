@@ -42,16 +42,17 @@ class GameSessionFactorySpec extends ObjectBehavior
         CustomerInterface $customer,
         CustomerInterface $challengedCustomer,
         FactoryInterface $playerFactory,
-        Player $player,
-        Round $round
+        Player $player
     ): void {
         $factory->createNew()->willReturn($gameSession);
         $playerFactory->createNew()->willReturn($player);
 
+        $gameSession->setAuthor($customer)->shouldBeCalled();
+        $gameSession->setChallengedCustomer($challengedCustomer)->shouldBeCalled();
         $player->setCustomer($customer)->shouldBeCalled();
         $player->setCustomer($challengedCustomer)->shouldBeCalled();
         $gameSession->addPlayer($player)->shouldBeCalledTimes(2);
 
-        $this->createForCustomerWithChallenger($customer, $challengedCustomer);
+        $this->createForCustomerWithChallengedCustomer($customer, $challengedCustomer);
     }
 }
