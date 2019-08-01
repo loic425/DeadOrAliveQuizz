@@ -1,0 +1,5 @@
+app_api_login_check:
+    path: /login
+    methods: [GET, POST]
+    defaults:
+        _controller: sylius.controller.security:checkAction
