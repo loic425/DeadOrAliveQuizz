@@ -1,0 +1,46 @@
+{
+    "players": [
+        {
+            "customer": {
+                "id": @integer@,
+                "email": "api@sylius.com",
+                "email_canonical": "api@sylius.com",
+                "first_name": "Sam",
+                "last_name": "Identifie",
+                "gender": "u",
+                "user": {
+                    "id": @integer@,
+                    "username": "sylius",
+                    "username_canonical": "sylius",
+                    "roles": [
+                        "ROLE_API_ACCESS"
+                    ],
+                    "enabled": true
+                }
+            },
+            "id": @integer@
+        },
+        {
+            "customer": {
+                "id": @integer@,
+                "email": "challenged-customer@example.com",
+                "email_canonical": "challenged-customer@example.com",
+                "first_name": "Sam",
+                "last_name": "Le Pirate",
+                "gender": "u",
+                "user": {
+                    "id": @integer@,
+                    "username": "sam-le-pirate",
+                    "username_canonical": "sam-le-pirate",
+                    "roles": [
+                        "ROLE_USER"
+                    ],
+                    "enabled": true
+                }
+            },
+            "id": @integer@
+        }
+    ],
+    "rounds": [],
+    "id": @integer@
+}
