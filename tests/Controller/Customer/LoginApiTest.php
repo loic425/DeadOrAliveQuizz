@@ -23,7 +23,7 @@ class LoginApiTest extends JsonApiTestCase
      */
     public function it_allows_to_login()
     {
-        $this->loadFixturesFromFile('authentication/api_user.yml');
+        $this->loadFixturesFromFile('authentication/api_user.yaml');
 
         $data = <<<EOM
             {
