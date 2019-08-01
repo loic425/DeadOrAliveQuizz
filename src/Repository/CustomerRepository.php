@@ -13,10 +13,26 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Entity\CustomerInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 class CustomerRepository extends EntityRepository
 {
+    public function findOneByUsername(string $username): ?CustomerInterface
+    {
+        $queryBuilder = $this->createQueryBuilder('o');
+
+        $queryBuilder
+            ->addSelect('user')
+            ->join('o.user', 'user')
+            ->where('user.usernameCanonical = :username')
+            ->setParameter('username', $username);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     public function countCustomers(): int
     {
         return (int) $this->createQueryBuilder('o')
