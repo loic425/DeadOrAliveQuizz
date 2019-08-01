@@ -3,7 +3,7 @@
         <div class="ui dimmer transition hidden">
             <div class="content">
                 <div class="center">
-                    <div class="ui inverted button">{{ 'app.ui.challenge_this_player'|trans }}</div>
+                    <div class="ui inverted button"><a href="{{ path('app_frontend_game_session_create', { 'username': customer.user.username }) }}">{{ 'app.ui.challenge_this_player'|trans }}</a></div>
                 </div>
             </div>
         </div>

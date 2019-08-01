@@ -1,0 +1,23 @@
+app_frontend_game_session:
+    resource: |
+        alias: app.game_session
+        section: frontend
+        only: ['show']
+        templates: frontend/game_session
+    type: sylius.resource
+
+app_frontend_game_session_create:
+    methods: [POST, GET]
+    path: /users/{username}/game_sessions
+    defaults:
+        _controller: app.controller.game_session:createAction
+        _sylius:
+            factory:
+                method: createForCustomerWithChallengedCustomer
+                arguments:
+                    - "expr:notFoundOnNull(service('app.context.customer').getCustomer())"
+                    - "expr:notFoundOnNull(service('sylius.repository.customer').findOneByUsername($username))"
+            template: frontend/game_session/create.html.twig
+            redirect:
+                route: app_frontend_game_session_show
+                parameters: { id: resource.id }

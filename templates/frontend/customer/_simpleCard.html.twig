@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="image">
+        <img src="{{ avatar|default('https://semantic-ui.com/images/avatar/large/jenny.jpg') }}">
+    </div>
+    <div class="content">
+        <a class="header">{{ customer.user.username }}</a>
+        <div class="meta">
+            {{ customer.score }} pts
+        </div>
+    </div>
+    <div class="extra content">
+        <a>
+            <i class="signal icon"></i>
+            {{ 'app.ui.game_sesions.choice'|transchoice(2) }}
+        </a>
+    </div>
+</div>

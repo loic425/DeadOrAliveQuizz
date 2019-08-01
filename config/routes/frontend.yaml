@@ -11,6 +11,9 @@ app_account:
 sylius_customer:
     resource: "frontend/customers.yaml"
 
+app_game_session:
+    resource: "frontend/game_session.yaml"
+
 sylius_security:
     resource: "frontend/security.yaml"
 

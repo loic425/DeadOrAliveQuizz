@@ -1,0 +1,29 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% block content %}
+    <div class="ui hidden divider"></div>
+    <div class="ui segment">
+        <div class="ui two column very relaxed stackable grid">
+            <div class="column">
+                <div class="ui special cards">
+                    {% include 'frontend/customer/_simpleCard.html.twig' with {'customer': game_session.author} %}
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui special cards">
+                    {% include 'frontend/customer/_simpleCard.html.twig' with {'customer': game_session.challengedCustomer} %}
+                </div>
+            </div>
+        </div>
+        <div class="ui vertical divider">
+            and
+        </div>
+    </div>
+
+    {{ form_start(form, {'attr': {'class': 'margin-clear'}}) }}
+    <div style="display: none">
+        {{ form_widget(form) }}
+    </div>
+    {% include '@SyliusUi/Form/Buttons/_create.html.twig' %}
+    {{ form_end(form) }}
+{% endblock %}
