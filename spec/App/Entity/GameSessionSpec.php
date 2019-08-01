@@ -51,11 +51,21 @@ class GameSessionSpec extends ObjectBehavior
         $this->getEndedAt()->shouldReturn($endedAt);
     }
 
+    function it_has_no_author_by_default(): void
+    {
+        $this->getAuthor()->shouldReturn(null);
+    }
+
     function its_author_is_mutable(CustomerInterface $author): void
     {
         $this->setAuthor($author);
 
         $this->getAuthor()->shouldReturn($author);
+    }
+
+    function it_has_no_challenged_customer_by_default(): void
+    {
+        $this->getChallengedCustomer()->shouldReturn(null);
     }
 
     function its_challenged_customer_is_mutable(CustomerInterface $challengedCustomer): void

@@ -1,0 +1,6 @@
+services:
+    App\Factory\GameSessionFactory:
+        decorates: 'app.factory.game_session'
+        arguments:
+            $factory: '@App\Factory\GameSessionFactory.inner'
+            $playerFactory: '@app.factory.player'

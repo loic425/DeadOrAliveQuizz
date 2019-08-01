@@ -7,6 +7,12 @@ sylius_resource:
         app.oauth_client:
             classes:
                 model: App\Entity\OAuth\Client
+        app.game_session:
+            classes:
+                model: App\Entity\GameSession
+        app.player:
+            classes:
+                model: App\Entity\Player
         app.theme:
             classes:
                 model: App\Entity\Theme
