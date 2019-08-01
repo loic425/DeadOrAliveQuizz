@@ -19,5 +19,5 @@ app_frontend_game_session_create:
                     - "expr:notFoundOnNull(service('sylius.repository.customer').findOneByUsername($username))"
             template: frontend/game_session/create.html.twig
             redirect:
-                route: app_frontend_game_session_show
-                parameters: { id: resource.id }
+                route: app_frontend_round_create
+                parameters: { gameSessionId: resource.id }

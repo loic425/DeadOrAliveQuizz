@@ -30,6 +30,7 @@ class RoundType extends AbstractType
             ->add('theme', EntityType::class, [
                 'class' => Theme::class,
                 'label' => 'app.ui.theme',
+                'choice_label' => 'name',
             ])
         ;
     }

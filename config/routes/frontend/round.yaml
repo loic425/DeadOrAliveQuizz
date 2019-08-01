@@ -1,0 +1,14 @@
+app_frontend_round_create:
+    methods: [POST, GET]
+    path: /game_sessions/{gameSessionId}/rounds
+    defaults:
+        _controller: app.controller.round:createAction
+        _sylius:
+            factory:
+                method: createForGameSession
+                arguments:
+                    - "expr:notFoundOnNull(service('app.repository.game_session').find($gameSessionId))"
+            template: frontend/round/create.html.twig
+            redirect:
+                route: app_frontend_game_session_show
+                parameters: { id: resource.id }

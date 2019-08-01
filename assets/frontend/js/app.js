@@ -4,10 +4,10 @@ import $ from 'jquery';
 import 'sylius/ui/app';
 import 'sylius/ui/sylius-auto-complete';
 
-(function($) {
-    $(document).ready(function () {
-        $('.sylius-autocomplete').autoComplete();
-    });
+import './round';
+
+$(document).ready(function () {
+    $('.sylius-autocomplete').autoComplete();
 });
 
 window.$ = $;

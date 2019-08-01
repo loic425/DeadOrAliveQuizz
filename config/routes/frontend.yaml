@@ -4,17 +4,20 @@ app_frontend_homepage:
         _controller: FrameworkBundle:Template:template
         template: 'frontend/homepage/index.html.twig'
 
-app_account:
+app_frontend_account:
     resource: "frontend/account.yaml"
     prefix: "mon-compte"
 
-sylius_customer:
+sylius_frontend_customer:
     resource: "frontend/customers.yaml"
 
-app_game_session:
+app_frontend_game_session:
     resource: "frontend/game_session.yaml"
 
-sylius_security:
+app_frontend_round:
+    resource: "frontend/round.yaml"
+
+sylius_frontend_security:
     resource: "frontend/security.yaml"
 
 app_frontend_partial:

@@ -15,6 +15,7 @@ app:
         new_theme: New theme
         overview_of_your_website: Overview of you website
         search_customers: Search customers
+        select_theme: Select a theme
         themes: Themes
         validate: Validate
         view_website: View website

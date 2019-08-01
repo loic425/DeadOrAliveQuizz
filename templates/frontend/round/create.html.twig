@@ -1,0 +1,29 @@
+{% extends 'frontend/layout.html.twig' %}
+
+{% set themeChoices = form.theme.vars.choices %}
+
+{% block content %}
+    <div class="ui three column centered stackable grid">
+        <div class="column">
+            <h1 class="ui header">
+                <i class="circular tag icon"></i>
+                <div class="content">
+                    {{ 'app.ui.themes'|trans }}
+                    <div class="sub header">{{ 'app.ui.select_theme'|trans }}</div>
+                </div>
+            </h1>
+            <div id="themes" class="ui segments">
+                {% for data in themeChoices %}
+                <div class="ui segment">
+                    <p><a href="#" style="color: #202020; display: block" data-id="{{ data.value }}">{{ data.label }}</a></p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {{ form_start(form, {'attr': {'class': 'margin-clear'}}) }}
+        <div style="display: none">
+            {{ form_widget(form) }}
+        </div>
+    {{ form_end(form) }}
+{% endblock %}
