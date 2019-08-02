@@ -39,7 +39,7 @@ class QuestionFactorySpec extends ObjectBehavior
     ): void {
         $factory->createNew()->willReturn($question);
 
-        $question->setRound($round)->shouldBeCalled();
+        $round->setQuestion($question)->shouldBeCalled();
 
         $this->createForRound($round);
     }
