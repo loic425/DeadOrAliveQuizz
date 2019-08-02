@@ -50,9 +50,13 @@ class Round implements ResourceInterface
      */
     private $scores;
 
+    /** @var Collection */
+    private $answers;
+
     public function __construct()
     {
         $this->scores = new ArrayCollection();
+        $this->answers = new ArrayCollection();
     }
 
     public function getGameSession(): GameSession
@@ -89,5 +93,21 @@ class Round implements ResourceInterface
     {
         $this->scores->add($score);
         $score->setRound($this);
+    }
+
+    public function getAnswers(): Collection
+    {
+        return $this->answers;
+    }
+
+    public function hasAnswer(Answer $answer): bool
+    {
+        return $this->answers->contains($answer);
+    }
+
+    public function addAnswer(Answer $answer): void
+    {
+        $this->answers->add($answer);
+        $answer->setRound($this);
     }
 }

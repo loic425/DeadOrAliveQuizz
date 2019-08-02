@@ -2,6 +2,7 @@
 
 namespace spec\App\Entity;
 
+use App\Entity\Answer;
 use App\Entity\GameSession;
 use App\Entity\Round;
 use App\Entity\RoundScore;
@@ -59,5 +60,19 @@ class RoundSpec extends ObjectBehavior
         $this->addScore($score);
 
         $this->hasScore($score)->shouldReturn(true);
+    }
+
+    function it_initializes_answer_collection_by_default(): void
+    {
+        $this->getAnswers()->shouldHaveType(Collection::class);
+    }
+
+    function it_adds_answers(Answer $answer): void
+    {
+        $answer->setRound($this)->shouldBeCalled();
+
+        $this->addAnswer($answer);
+
+        $this->hasAnswer($answer)->shouldReturn(true);
     }
 }
