@@ -28,6 +28,9 @@ class Answer implements ResourceInterface
     /** @var int|null */
     private $bonusValue;
 
+    /** @var Round|null */
+    private $round;
+
     public function getValue(): ?string
     {
         return $this->value;
@@ -46,5 +49,15 @@ class Answer implements ResourceInterface
     public function setBonusValue(?int $bonusValue): void
     {
         $this->bonusValue = $bonusValue;
+    }
+
+    public function getRound(): ?Round
+    {
+        return $this->round;
+    }
+
+    public function setRound(?Round $round): void
+    {
+        $this->round = $round;
     }
 }

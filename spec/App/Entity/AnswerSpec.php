@@ -3,6 +3,7 @@
 namespace spec\App\Entity;
 
 use App\Entity\Answer;
+use App\Entity\Round;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Sylius\Component\Resource\Model\ResourceInterface;
@@ -46,5 +47,17 @@ class AnswerSpec extends ObjectBehavior
         $this->setBonusValue(2012);
 
         $this->getBonusValue()->shouldReturn(2012);
+    }
+
+    function it_has_no_round_by_default(): void
+    {
+        $this->getRound()->shouldReturn(null);
+    }
+
+    function its_round_is_mutable(Round $round): void
+    {
+        $this->setRound($round);
+
+        $this->getRound()->shouldReturn($round);
     }
 }
