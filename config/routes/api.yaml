@@ -1,3 +1,6 @@
+app_api_answer:
+    resource: "api/answer.yaml"
+
 app_api_game_session:
     resource: "api/game_session.yaml"
 

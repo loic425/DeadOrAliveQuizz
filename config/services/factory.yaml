@@ -1,4 +1,9 @@
 services:
+    App\Factory\AnswerFactory:
+        decorates: 'app.factory.answer'
+        arguments:
+            $factory: '@App\Factory\AnswerFactory.inner'
+
     App\Factory\GameSessionFactory:
         decorates: 'app.factory.game_session'
         arguments:

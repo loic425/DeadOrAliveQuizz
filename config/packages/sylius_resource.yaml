@@ -1,5 +1,9 @@
 sylius_resource:
     resources:
+        app.answer:
+            classes:
+                model: App\Entity\Answer
+                form: App\Form\Type\AnswerType
         app.celebrity:
             classes:
                 model: App\Entity\Celebrity

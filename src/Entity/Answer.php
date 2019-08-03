@@ -13,8 +13,13 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="app_answer")
+ */
 class Answer implements ResourceInterface
 {
     const VALUE_YES = 'yes';
@@ -22,13 +27,25 @@ class Answer implements ResourceInterface
 
     use IdentifiableTrait;
 
-    /** @var string|null */
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
     private $value;
 
-    /** @var int|null */
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
     private $bonusValue;
 
-    /** @var Round|null */
+    /**
+     * @var Round|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Round", inversedBy="answers")
+     */
     private $round;
 
     public function getValue(): ?string
