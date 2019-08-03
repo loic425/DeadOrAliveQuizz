@@ -22,12 +22,19 @@ class QuestionGenerator
     /** @var QuestionFactory */
     private $questionFactory;
 
+    /** @var CelebrityGenerator */
+    private $celebrityGenerator;
+
     /** @var YearGenerator */
     private $yearGenerator;
 
-    public function __construct(FactoryInterface $questionFactory, YearGenerator $yearGenerator)
-    {
+    public function __construct(
+        FactoryInterface $questionFactory,
+        CelebrityGenerator $celebrityGenerator,
+        YearGenerator $yearGenerator
+    ) {
         $this->questionFactory = $questionFactory;
+        $this->celebrityGenerator = $celebrityGenerator;
         $this->yearGenerator = $yearGenerator;
     }
 
@@ -35,6 +42,8 @@ class QuestionGenerator
     {
         /** @var Question $question */
         $question = $this->questionFactory->createForRound($round);
+        $celebrity = $this->celebrityGenerator->generate($round);
+        $question->setCelebrity($celebrity);
 
         $years = $this->yearGenerator->generate(4);
         foreach ($years as $year) {

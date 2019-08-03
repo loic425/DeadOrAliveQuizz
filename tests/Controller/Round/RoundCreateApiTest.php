@@ -31,6 +31,7 @@ class RoundCreateApiTest extends JsonApiTestCase
             'authentication/api_user.yaml',
             'game_sessions.yaml',
             'themes.yaml',
+            'celebrities.yaml',
         ]);
 
         /** @var GameSession $gameSession */

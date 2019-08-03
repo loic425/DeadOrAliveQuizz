@@ -1,0 +1,6 @@
+App\Entity\Celebrity:
+    celebrity1:
+        firstName: 'Clint'
+        lastName: 'Eastwood'
+        themes:
+            - '@theme_Cinema'

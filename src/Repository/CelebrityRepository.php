@@ -22,7 +22,8 @@ class CelebrityRepository extends EntityRepository
     {
         $queryBuilder = $this->createQueryBuilder('o');
         $queryBuilder
-            ->where('o.theme', ':theme')
+            ->join('o.themes', 'theme')
+            ->where($queryBuilder->expr()->eq('theme', ':theme'))
             ->setParameter('theme', $round->getTheme())
             ->setMaxResults(1);
 
