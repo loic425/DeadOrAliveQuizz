@@ -30,6 +30,7 @@ class AnswerCreateApiTest extends JsonApiTestCase
     {
         $resources = $this->loadFixturesFromFiles([
             'authentication/api_user.yaml',
+            'game_sessions.yaml',
             'rounds.yaml',
         ]);
 

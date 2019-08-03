@@ -3,6 +3,7 @@
 namespace spec\App\Entity;
 
 use App\Entity\Answer;
+use App\Entity\Player;
 use App\Entity\Round;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -59,5 +60,17 @@ class AnswerSpec extends ObjectBehavior
         $this->setRound($round);
 
         $this->getRound()->shouldReturn($round);
+    }
+
+    function it_has_no_player_by_default(): void
+    {
+        $this->getPlayer()->shouldReturn(null);
+    }
+
+    function its_player_is_mutable(Player $player): void
+    {
+        $this->setPlayer($player);
+
+        $this->getPlayer()->shouldReturn($player);
     }
 }

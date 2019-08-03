@@ -48,6 +48,13 @@ class Answer implements ResourceInterface
      */
     private $round;
 
+    /**
+     * @var Player|null
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Player")
+     */
+    private $player;
+
     public function getValue(): ?string
     {
         return $this->value;
@@ -76,5 +83,15 @@ class Answer implements ResourceInterface
     public function setRound(?Round $round): void
     {
         $this->round = $round;
+    }
+
+    public function getPlayer(): ?Player
+    {
+        return $this->player;
+    }
+
+    public function setPlayer(?Player $player): void
+    {
+        $this->player = $player;
     }
 }

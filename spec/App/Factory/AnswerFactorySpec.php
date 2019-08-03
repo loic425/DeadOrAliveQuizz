@@ -4,8 +4,11 @@ namespace spec\App\Factory;
 
 use App\Entity\Answer;
 use App\Entity\CustomerInterface;
+use App\Entity\GameSession;
+use App\Entity\Player;
 use App\Entity\Round;
 use App\Factory\AnswerFactory;
+use Doctrine\Common\Collections\ArrayCollection;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -38,12 +41,24 @@ class AnswerFactorySpec extends ObjectBehavior
         FactoryInterface $factory,
         Answer $answer,
         Round $round,
-        CustomerInterface $customer
+        CustomerInterface $firstCustomer,
+        CustomerInterface $secondCustomer,
+        GameSession $gameSession,
+        Player $firstPlayer,
+        Player $secondPlayer
     ): void {
         $factory->createNew()->willReturn($answer);
+        $round->getGameSession()->willReturn($gameSession);
+        $gameSession->getPlayers()->willReturn(new ArrayCollection([
+            $firstPlayer->getWrappedObject(),
+            $secondPlayer->getWrappedObject(),
+        ]));
+        $firstPlayer->getCustomer()->willReturn($firstCustomer);
+        $secondPlayer->getCustomer()->willReturn($secondCustomer);
 
         $answer->setRound($round)->shouldBeCalled();
+        $answer->setPlayer($firstPlayer)->shouldBeCalled();
 
-        $this->createForRoundWithCustomer($round, $customer)->shouldReturn($answer);
+        $this->createForRoundWithCustomer($round, $firstCustomer)->shouldReturn($answer);
     }
 }

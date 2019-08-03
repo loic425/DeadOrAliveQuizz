@@ -40,6 +40,12 @@ class AnswerFactory implements FactoryInterface
         $answer = $this->createNew();
         $answer->setRound($round);
 
+        foreach ($round->getGameSession()->getPlayers() as $player) {
+            if ($customer === $player->getCustomer()) {
+                $answer->setPlayer($player);
+            }
+        }
+
         return $answer;
     }
 }
