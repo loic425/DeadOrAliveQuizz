@@ -15,7 +15,6 @@ namespace App\Repository;
 use App\Entity\Celebrity;
 use App\Entity\Round;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
-use function Doctrine\ORM\QueryBuilder;
 
 class CelebrityRepository extends EntityRepository
 {
