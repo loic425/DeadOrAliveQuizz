@@ -1,0 +1,12 @@
+app_api_answer_create:
+    methods: [POST]
+    path: /rounds/{roundId}/answers
+    defaults:
+        _controller: app.controller.answer:createAction
+        _sylius:
+            factory:
+                method: createForRoundWithCustomer
+                arguments:
+                    - "expr:notFoundOnNull(service('app.repository.round').find($roundId))"
+                    - "expr:notFoundOnNull(service('app.context.customer').getCustomer())"
+            serialization_contexts: [Default, Detailed]

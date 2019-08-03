@@ -1,0 +1,8 @@
+{
+    "value": "yes",
+    "bonus_value": 2012,
+    "round": {
+        "id": @integer@
+    },
+    "id": @integer@
+}

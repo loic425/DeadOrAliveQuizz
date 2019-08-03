@@ -50,7 +50,11 @@ class Round implements ResourceInterface
      */
     private $scores;
 
-    /** @var Collection */
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Answer", mappedBy="round")
+     */
     private $answers;
 
     public function __construct()
