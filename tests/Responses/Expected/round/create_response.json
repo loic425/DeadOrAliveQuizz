@@ -12,5 +12,9 @@
         "current_locale": "en_US",
         "fallback_locale": "en_US"
     },
+    "question": {
+        "random_years": @array@,
+        "id": @integer@
+    },
     "id": @integer@
 }

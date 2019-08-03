@@ -4,6 +4,7 @@ namespace spec\App\Entity;
 
 use App\Entity\Answer;
 use App\Entity\GameSession;
+use App\Entity\Question;
 use App\Entity\Round;
 use App\Entity\RoundScore;
 use App\Entity\Theme;
@@ -46,6 +47,18 @@ class RoundSpec extends ObjectBehavior
         $this->setTheme($theme);
 
         $this->getTheme()->shouldReturn($theme);
+    }
+
+    function it_has_no_question_by_default(): void
+    {
+        $this->getQuestion()->shouldReturn(null);
+    }
+
+    function its_question_is_mutable(Question $question): void
+    {
+        $this->setQuestion($question);
+
+        $this->getQuestion()->shouldReturn($question);
     }
 
     function it_initializes_score_collection_by_default(): void

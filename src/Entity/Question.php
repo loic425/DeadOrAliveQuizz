@@ -24,13 +24,6 @@ class Question implements ResourceInterface
     use IdentifiableTrait;
 
     /**
-     * @var Round|null
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Round")
-     */
-    private $round;
-
-    /**
      * @var Celebrity|null
      *
      * @ORM\ManyToOne(targetEntity="App\Entity\Celebrity")
@@ -43,16 +36,6 @@ class Question implements ResourceInterface
      * @ORM\Column(type="array")
      */
     private $randomYears = [];
-
-    public function getRound(): ?Round
-    {
-        return $this->round;
-    }
-
-    public function setRound(?Round $round): void
-    {
-        $this->round = $round;
-    }
 
     public function getCelebrity(): ?Celebrity
     {

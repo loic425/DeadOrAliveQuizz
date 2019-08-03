@@ -37,7 +37,7 @@ class QuestionFactory implements FactoryInterface
     public function createForRound(Round $round): Question
     {
         $question = $this->createNew();
-        $question->setRound($round);
+        $round->setQuestion($question);
 
         return $question;
     }
