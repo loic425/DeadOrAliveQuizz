@@ -13,6 +13,11 @@
         "fallback_locale": "en_US"
     },
     "question": {
+        "celebrity": {
+            "first_name": "Clint",
+            "last_name": "Eastwood",
+            "id": @integer@
+        },
         "random_years": @array@,
         "id": @integer@
     },

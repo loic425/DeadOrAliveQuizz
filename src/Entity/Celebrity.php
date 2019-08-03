@@ -12,13 +12,18 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="app_celebrity")
+ *
+ * @Serializer\ExclusionPolicy("all")
  */
 class Celebrity implements ResourceInterface
 {
@@ -29,6 +34,9 @@ class Celebrity implements ResourceInterface
      *
      * @ORM\Column(type="string")
      *
+     * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Detailed"})
+     *
      * @Assert\NotBlank
      */
     private $firstName;
@@ -37,6 +45,9 @@ class Celebrity implements ResourceInterface
      * @var string|null
      *
      * @ORM\Column(type="string")
+     *
+     * @Serializer\Expose
+     * @Serializer\Groups({"Default", "Detailed"})
      *
      * @Assert\NotBlank
      */
@@ -48,6 +59,18 @@ class Celebrity implements ResourceInterface
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $deadAt;
+
+    /**
+     * @var Collection
+     *
+     * @ORM\ManyToMany(targetEntity="App\Entity\Theme")
+     */
+    private $themes;
+
+    public function __construct()
+    {
+        $this->themes = new ArrayCollection();
+    }
 
     public function getFirstName(): ?string
     {
@@ -82,5 +105,25 @@ class Celebrity implements ResourceInterface
     public function isDead(): bool
     {
         return null !== $this->deadAt;
+    }
+
+    public function getThemes(): Collection
+    {
+        return $this->themes;
+    }
+
+    public function hasTheme(Theme $theme): bool
+    {
+        return $this->themes->contains($theme);
+    }
+
+    public function addTheme(Theme $theme): void
+    {
+        $this->themes->add($theme);
+    }
+
+    public function removeTheme(Theme $theme): void
+    {
+        $this->themes->removeElement($theme);
     }
 }

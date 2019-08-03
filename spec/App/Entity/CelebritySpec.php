@@ -3,6 +3,8 @@
 namespace spec\App\Entity;
 
 use App\Entity\Celebrity;
+use App\Entity\Theme;
+use Doctrine\Common\Collections\Collection;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Sylius\Component\Resource\Model\ResourceInterface;
@@ -70,5 +72,26 @@ class CelebritySpec extends ObjectBehavior
         $this->setDeadAt($deadAt);
 
         $this->isDead()->shouldReturn(true);
+    }
+
+    function it_initializes_theme_collection_by_default(): void
+    {
+        $this->getThemes()->shouldHaveType(Collection::class);
+    }
+
+    function it_adds_themes(Theme $theme): void
+    {
+        $this->addTheme($theme);
+
+        $this->hasTheme($theme)->shouldReturn(true);
+    }
+
+    function it_removes_themes(Theme $theme): void
+    {
+        $this->addTheme($theme);
+
+        $this->removeTheme($theme);
+
+        $this->hasTheme($theme)->shouldReturn(false);
     }
 }
