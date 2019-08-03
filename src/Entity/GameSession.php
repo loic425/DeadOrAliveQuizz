@@ -113,6 +113,9 @@ class GameSession implements ResourceInterface
         $this->challengedCustomer = $challengedCustomer;
     }
 
+    /**
+     * @return Collection|Player[]
+     */
     public function getPlayers(): Collection
     {
         return $this->players;
